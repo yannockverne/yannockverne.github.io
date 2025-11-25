@@ -3,8 +3,8 @@ description: "Streamer, éditeur ImpGeo, photographe du Verse & fondateur de Sub
 theme: minima
 
 # URL : remplace par ton user et repo
-url: "https://ton-user.github.io"
-baseurl: "/ton-repo"  # laisse vide ("") si c'est ton user.github.io
+url: "https://yannock.github.io"
+baseurl: ""  # laisse vide ("") si c'est ton user.github.io
 
 author:
   name: "Yannock"
