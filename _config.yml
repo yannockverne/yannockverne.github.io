@@ -27,3 +27,9 @@ defaults:
 
 # ----------- BUILD -----------
 markdown: kramdown
+# Images aléatoires pour header
+random_header_images:
+  - /assets/images/header/bg1.jpg
+  - /assets/images/header/bg2.jpg
+  - /assets/images/header/bg3.jpg
+  - /assets/images/header/bg4.jpg
