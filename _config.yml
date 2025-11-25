@@ -1,6 +1,6 @@
 title: "Yannock / Yannock Verne"
 description: "Streamer, éditeur ImpGeo, photographe du Verse & fondateur de SubOrbital Records."
-theme: jekyll-theme-minimal
+theme: minimal-mistakes-jekyll
 
 # URL : remplace par ton user et repo
 url: "https://yannockverne.github.io"
