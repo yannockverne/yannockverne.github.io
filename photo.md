@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Photographie du Verse"
 permalink: /photo/
 ---
