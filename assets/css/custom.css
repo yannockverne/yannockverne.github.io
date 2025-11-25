@@ -1,4 +1,7 @@
-/* === FOND GLOBAL === */
+/* ===========================
+   TYPO & FOND GLOBAL
+   =========================== */
+
 body {
   background-color: #000;
   background-position: center center;
@@ -6,25 +9,29 @@ body {
   background-attachment: fixed;
   background-size: cover;
   font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.6;
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", Arial, sans-serif;
   font-weight: 600;
-  letter-spacing: -0.5px; /* optionnel, très joli visuellement */
+  letter-spacing: -0.5px;
 }
 
-/* === CARTE BLANCHE CENTRÉE POUR LE CONTENU === */
+/* ===========================
+   CARTE DE CONTENU
+   =========================== */
+
 .content-card {
   max-width: 1100px;
   margin: 3rem auto;
-  background: rgba(15, 15, 15, 0.92);      /* gris très foncé */
-  color: #f3f3f3;                           /* texte clair */
+  background: rgba(15, 15, 15, 0.92);   /* gris très foncé */
+  color: #f3f3f3;                       /* texte clair */
   padding: 2.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* Titres un peu plus lumineux */
 .content-card h1,
 .content-card h2,
 .content-card h3,
@@ -32,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
 }
 
-/* Liens en jaune ImpGeo */
+/* Liens dans la carte */
 .content-card a {
   color: #ffcf2b;
 }
@@ -41,48 +48,80 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffe676;
 }
 
+/* ===========================
+   NAVBAR NOIR / BLANC / JAUNE
+   =========================== */
 
-/* NAVBAR noir / blanc / jaune */
+/* Fond de la barre */
 .masthead,
 .masthead__inner-wrap,
 .greedy-nav {
   background: #000 !important;
 }
 
+/* Titre du site */
 .greedy-nav .site-title {
   color: #ffffff !important;
 }
 
+/* Liens du menu (état normal) */
 .greedy-nav .masthead__menu-item a {
   color: #f0f0f0;
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
   border: 2px solid transparent;
   transition: all 0.2s ease;
-  text-decoration: none;           /* <- plus de souligné */
 }
 
+/* Hover / focus sur un onglet */
 .greedy-nav .masthead__menu-item a:hover,
 .greedy-nav .masthead__menu-item a:focus {
   color: #ffcf2b;
   border-color: #ffcf2b;
-  text-decoration: none;           /* <- reste non souligné au hover */
 }
 
-.greedy-nav .masthead__menu-item a[aria-current="page"],
-.greedy-nav .masthead__menu-item--active a {
+/* Onglet actif (page courante) */
+.greedy-nav .masthead__menu-item--active a,
+.greedy-nav .masthead__menu-item a[aria-current="page"] {
   background: #ffcf2b;
   color: #000;
   border-color: #ffcf2b;
-  text-decoration: none;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255, 207, 43, 0.45); /* petit glow ImpGeo */
 }
 
+/* Bouton burger en mobile */
 .greedy-nav__toggle {
   color: #ffffff;
 }
-/* Supprime définitivement tous les soulignements du menu */
+
+/* AUCUN soulignement dans le menu */
 .greedy-nav .masthead__menu-item a,
 .greedy-nav .masthead__menu-item a:hover,
 .greedy-nav .masthead__menu-item a:focus {
   text-decoration: none !important;
+}
+
+/* ===========================
+   LIENS GLOBAUX
+   =========================== */
+
+/* On vire les soulignements partout (si tu veux du souligné quelque part,
+   on le remettra localement plus tard) */
+a,
+a:hover,
+a:focus {
+  text-decoration: none !important;
+}
+
+/* ===========================
+   TITRE DE PAGE PAR DÉFAUT
+   =========================== */
+
+/* On cache le H1 gris généré par le thème,
+   puisque tu gères ton propre titre dans .content-card */
+.page__title {
+  display: none;
 }
