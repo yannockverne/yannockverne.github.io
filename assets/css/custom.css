@@ -146,8 +146,8 @@ a:focus {
   background-position: center;
 
   display: block;
-  width: 40px;          /* taille "réelle" pour la mise en page */
-  height: 40px;
+  width: 120px;          /* taille "réelle" pour la mise en page */
+  height: 120px;
   text-indent: -9999px; /* cache le texte mais le garde pour l’accessibilité/SEO */
   overflow: hidden;
 
