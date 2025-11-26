@@ -80,18 +80,6 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #ffcf2b;
 }
 
-/* Onglet actif (page courante) */
-.greedy-nav .masthead__menu-item--active a,
-.greedy-nav .masthead__menu-item a[aria-current="page"] {
-  background: #ffcf2b;
-  color: #000;
-  border-color: #ffcf2b;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 999px;
-  box-shadow: 0 0 12px rgba(255, 207, 43, 0.45); /* petit glow ImpGeo */
-}
-
 /* Bouton burger en mobile */
 .greedy-nav__toggle {
   color: #ffffff;
@@ -176,4 +164,21 @@ a:focus {
 .masthead,
 .greedy-nav {
   overflow: visible;
+}
+/* =========================================
+   ONGLET ACTIF DANS LA NAV (PILL JAUNE)
+   Couvre tous les cas : classe ou aria-current,
+   sur <li> ou sur <a>
+   ========================================= */
+
+.greedy-nav .masthead__menu-item--active > a,
+.greedy-nav .masthead__menu-item[aria-current="page"] > a,
+.greedy-nav .masthead__menu-item > a[aria-current="page"] {
+  background: #ffcf2b !important;
+  color: #000 !important;
+  border-color: #ffcf2b !important;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255, 207, 43, 0.45);
 }
