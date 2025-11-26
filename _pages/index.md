@@ -22,14 +22,14 @@ Ici, je regroupe tout ce que je fais autour de Star Citizen et de l’univers qu
 Sessions chill (ou un peu chaotiques) sur Star Citizen : exploration, minage, soirées ImpGeo, discussions et musique.  
 ➡️ [Découvrir la partie streaming](/twitch/)
 
+### 🖼️ Photographe du Verse
+Capturer la lumière des lunes, les silhouettes des vaisseaux, les villes dans les nuages et les ombres des astéroïdes.  
+➡️ [Voir quelques images](/photo/)
+
 ### 📰 Yannock Verne – Imperial Geographic
 Executive Editor / Editorial Supervisor chez Imperial Geographic.  
 Magazines, récits, systèmes stellaires, portraits de mineurs, d’explorateurs et de pilotes.  
 ➡️ [Explorer mon travail ImpGeo](/impgeo/)
-
-### 🖼️ Photographe du Verse
-Capturer la lumière des lunes, les silhouettes des vaisseaux, les villes dans les nuages et les ombres des astéroïdes.  
-➡️ [Voir quelques images](/photo/)
 
 ### 🎵 SubOrbital Records
 Label in-lore dédié aux voix et aux sons du Verse : Lyra Nhadra, Kovah Redd, The Scrapliners, SubLight Shift, et bien d’autres.  

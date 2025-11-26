@@ -5,9 +5,6 @@ main:
   - title: "Streaming"
     url: /twitch/
 
-  - title: "Imperial Geographic"
-    url: /impgeo/
-
   - title: "Photos"
     url: /photo/
     children:
@@ -20,6 +17,9 @@ main:
       - title: "Ships & Silhouettes"
         url: /photo/ships/
 
+  - title: "Imperial Geographic"
+    url: /impgeo/
+    
   - title: "SubOrbital Records"
     url: /suborbital/
     children:
