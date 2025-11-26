@@ -13,7 +13,7 @@ Je streame  **Star Citizen**, avec un mélange de chill, de discussions, d’exp
 
 <div class="embed-container">
   <iframe
-    src="https://player.twitch.tv/?channel=Yannock_&parent=yannockverne.github.io"
+    src="https://player.twitch.tv/?channel=yannock_&parent=yannock.eu&parent=www.yannock.eu&parent=yannockverne.github.io"
     frameborder="0"
     allowfullscreen="true"
     scrolling="no">
