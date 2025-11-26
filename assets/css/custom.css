@@ -182,3 +182,13 @@ a:focus {
   border-radius: 999px;
   box-shadow: 0 0 12px rgba(255, 207, 43, 0.45);
 }
+/* Onglet actif dans la nav, marqué par le script JS */
+.greedy-nav .masthead__menu-item a.nav-current {
+  background: #ffcf2b;
+  color: #000;
+  border-color: #ffcf2b;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255, 207, 43, 0.45);
+}
