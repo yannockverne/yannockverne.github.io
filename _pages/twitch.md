@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: "Streaming Twitch"
+title: "Streaming"
 permalink: /twitch/
 ---
 <div class="content-card" markdown="1">

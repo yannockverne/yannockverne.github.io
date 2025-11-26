@@ -7,25 +7,9 @@ main:
 
   - title: "Photos"
     url: /photo/
-    children:
-      - title: "Worlds of Stanton"
-        url: /photo/stanton/
-      - title: "Pyro Fragments"
-        url: /photo/pyro/
-      - title: "Crusader Clouds"
-        url: /photo/crusader/
-      - title: "Ships & Silhouettes"
-        url: /photo/ships/
 
   - title: "Imperial Geographic"
     url: /impgeo/
     
   - title: "SubOrbital Records"
     url: /suborbital/
-    children:
-      - title: "Artistes"
-        url: /suborbital/artistes/
-      - title: "Compilations"
-        url: /suborbital/compilations/
-      - title: "Événements"
-        url: /suborbital/events/
