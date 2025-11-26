@@ -138,36 +138,42 @@ a:focus {
   display: none !important;
   content: none !important;
 }
-/* Logo rond dans la nav, qui déborde vers le bas sans agrandir la barre */
+/* Base du titre du site dans la nav (boîte "normale" pour la mise en page) */
 .greedy-nav .site-title {
-  background-image: url('/assets/images/logo-yannock.png'); /* adapte le nom si besoin */
+  position: relative;        /* pour positionner le logo par-dessus */
+  display: block;
+  width: 40px;               /* petite boîte, c'est elle qui définit la hauteur de la nav */
+  height: 40px;
+  text-indent: -9999px;      /* on cache le texte mais il reste dans le DOM */
+  overflow: visible;         /* on laisse déborder ce qu'il y a au-dessus */
+  margin: 0 1.5rem 0 0;      /* espace avec le menu */
+  padding: 0;
+}
+
+/* Le vrai logo rond, GRAND, qui déborde de la navbar */
+.greedy-nav .site-title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+
+  width: 120px;              /* vraie taille du logo */
+  height: 120px;
+  transform: translate(-50%, 18px); 
+  /* -50% pour centrer horizontalement,
+     18px vers le bas pour le faire déborder. 
+     Tu peux essayer 16 / 20 / 22 pour ajuster. */
+
+  background-image: url('/assets/images/logo-yannock.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 
-  display: block;
-  width: 120px;          /* taille "réelle" pour la mise en page */
-  height: 120px;
-  text-indent: -9999px; /* cache le texte mais le garde pour l’accessibilité/SEO */
-  overflow: hidden;
-
   border-radius: 50%;
-
-  margin: 0 1rem 0 0;   /* espace avec les liens, pas de margin-top ici */
-
-  /* Décalage visuel vers le bas sans toucher à la hauteur de la nav */
-  transform: translateY(10px);
 }
 
-/* S’assurer que la nav laisse voir ce qui déborde */
+/* La nav doit laisser voir ce qui déborde vers le bas */
 .masthead,
 .greedy-nav {
   overflow: visible;
-}
-
-
-/* Optionnel : réduit un peu le padding autour du logo si besoin */
-.greedy-nav .site-title {
-  padding: 0;
-  margin-right: 1rem;
 }
