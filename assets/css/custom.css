@@ -138,3 +138,25 @@ a:focus {
   display: none !important;
   content: none !important;
 }
+/* Remplacer le texte "Yannock Verne" par le logo rond */
+.greedy-nav .site-title {
+  background-image: url('/assets/images/logo-yannock.png'); /* adapte le nom */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  display: block;
+  width: 120px;          /* largeur du logo dans la nav */
+  height: 120px;         /* hauteur du logo dans la nav */
+  text-indent: -9999px; /* planque le texte sans le supprimer pour l’accessibilité */
+  overflow: hidden;
+
+  border-radius: 50%;   /* pour être bien rond */
+  margin-top: 10px;     /* fait "déborder" vers le bas sur le header */
+}
+
+/* Optionnel : réduit un peu le padding autour du logo si besoin */
+.greedy-nav .site-title {
+  padding: 0;
+  margin-right: 1rem;
+}
