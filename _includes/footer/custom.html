@@ -12,23 +12,28 @@
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  // Normalisation du chemin courant
   var path = window.location.pathname;
-
-  // enlève le / final sauf pour la racine
   if (path.length > 1 && path.endsWith("/")) {
     path = path.slice(0, -1);
   }
 
-  var links = document.querySelectorAll(".greedy-nav .masthead__menu-item a");
+  var nav = document.querySelector(".greedy-nav");
+  if (!nav) return;
+
+  var links = nav.querySelectorAll(".masthead__menu-item a");
+  if (!links.length) return;
+
+  // 1) Marquer l'onglet actif avec .nav-current
+  var activeLink = null;
 
   links.forEach(function (link) {
     var href = link.getAttribute("href");
     if (!href) return;
 
-    // ignore les liens externes
+    // Ignorer les liens externes
     if (href.indexOf("http://") === 0 || href.indexOf("https://") === 0) return;
 
-    // normalise aussi le href
     var normalized = href;
     if (normalized.length > 1 && normalized.endsWith("/")) {
       normalized = normalized.slice(0, -1);
@@ -36,8 +41,68 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (normalized === path) {
       link.classList.add("nav-current");
+      activeLink = link;
+    }
+  });
+
+  // Si aucun lien ne correspond exactement, on considère la racine "/"
+  if (!activeLink) {
+    links.forEach(function (link) {
+      var href = link.getAttribute("href");
+      if (href === "/" || href === "") {
+        link.classList.add("nav-current");
+        activeLink = link;
+      }
+    });
+  }
+
+  // 2) Créer l'indicateur (bulle)
+  var indicator = document.createElement("div");
+  indicator.className = "nav-indicator";
+  nav.appendChild(indicator);
+
+  function moveIndicatorTo(link) {
+    if (!link) {
+      indicator.style.opacity = "0";
+      return;
+    }
+    var navRect = nav.getBoundingClientRect();
+    var linkRect = link.getBoundingClientRect();
+
+    var linkCenter = linkRect.left + linkRect.width / 2;
+    var indicatorWidth = linkRect.width * 0.6; // 60% de la largeur du lien
+
+    indicator.style.width = indicatorWidth + "px";
+    indicator.style.transform = "translateX(" + (linkCenter - navRect.left - indicatorWidth / 2) + "px)";
+    indicator.style.opacity = "1";
+  }
+
+  // 3) Placer l'indicateur sur le lien actif au chargement
+  if (activeLink) {
+    moveIndicatorTo(activeLink);
+  }
+
+  // 4) Effet hover : la bulle suit la souris
+  links.forEach(function (link) {
+    link.addEventListener("mouseenter", function () {
+      moveIndicatorTo(link);
+    });
+  });
+
+  // 5) Quand la souris quitte la nav, la bulle revient sur l'actif
+  nav.addEventListener("mouseleave", function () {
+    if (activeLink) {
+      moveIndicatorTo(activeLink);
+    } else {
+      indicator.style.opacity = "0";
+    }
+  });
+
+  // 6) Recalcule sur resize (responsive)
+  window.addEventListener("resize", function () {
+    if (activeLink) {
+      moveIndicatorTo(activeLink);
     }
   });
 });
 </script>
-

@@ -192,3 +192,39 @@ a:focus {
   border-radius: 999px;
   box-shadow: 0 0 12px rgba(255, 207, 43, 0.45);
 }
+/* =========================================
+   INDICATEUR ANIMÉ SOUS LE MENU (BULLE)
+   Suivit de la souris + onglet actif
+   ========================================= */
+
+.greedy-nav {
+  position: relative; /* permet de positionner la bulle à l'intérieur */
+}
+
+/* La "bulle" (ligne / pill) qui glisse */
+.nav-indicator {
+  position: absolute;
+  bottom: 0;              /* collée en bas de la nav */
+  height: 3px;
+  border-radius: 999px;
+  background: #ffcf2b;
+  box-shadow: 0 0 10px rgba(255, 207, 43, 0.7);
+
+  width: 0;
+  left: 0;
+  transform: translateX(0);
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    width 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+/* Sur mobile (menu burger), on masque l'indicateur pour éviter les glitchs */
+@media (max-width: 768px) {
+  .nav-indicator {
+    display: none;
+  }
+}
