@@ -128,37 +128,40 @@ function displayGalleryModal(gallery, galleryName) {
 
   title.textContent = formatGalleryName(galleryName || currentGallery.id);
   
-  content.innerHTML = (gallery.images || []).map((img, index) => {
-    // On essaie plusieurs noms possibles pour les chemins
-    const thumbPath =
-      img.thumb ||
-      img.thumbnail ||
-      img.thumbPath ||
-      img.miniature ||
-      img.path ||
-      img.file ||
-      '';
+content.innerHTML = (gallery.images || []).map((img, index) => {
+  // On essaie plusieurs noms possibles pour les chemins
+  const thumbPath =
+    img.thumb ||
+    img.thumbnail ||
+    img.thumbPath ||
+    img.miniature ||
+    img.path ||
+    img.file ||
+    '';
 
-    const fullPath =
-      img.original ||
-      img.full ||
-      img.image ||
-      img.src ||
-      thumbPath;
+  const fullPath =
+    img.original ||
+    img.full ||
+    img.image ||
+    img.src ||
+    thumbPath;
 
-    const thumbUrl = `${GALLERIES_PATH}/${currentGallery.id}/${thumbPath}`;
-    const fullUrl = `${GALLERIES_PATH}/${currentGallery.id}/${fullPath}`;
-    
-    return `
-      <a href="${fullUrl}" 
-         class="gallery-thumb">
-        <img src="${thumbUrl}" 
-             alt="Photo ${index + 1} - ${formatGalleryName(galleryName || currentGallery.id)}" 
-             loading="lazy"
-             onerror="this.parentElement.classList.add('loading')">
-      </a>
-    `;
-  }).join('');
+  const thumbUrl = `${GALLERIES_PATH}/${currentGallery.id}/${thumbPath}`;
+  const fullUrl = `${GALLERIES_PATH}/${currentGallery.id}/${fullPath}`;
+  
+  return `
+    <a href="${fullUrl}" 
+       class="gallery-thumb"
+       data-pswp-width="1"
+       data-pswp-height="1">
+      <img src="${thumbUrl}" 
+           alt="Photo ${index + 1} - ${formatGalleryName(galleryName || currentGallery.id)}" 
+           loading="lazy"
+           onerror="this.parentElement.classList.add('loading')">
+    </a>
+  `;
+}).join('');
+
 
   modal.classList.add('active');
 
