@@ -23,13 +23,20 @@
 
     try {
       const response = await fetch(`${GALLERIES_PATH}/galleries-index.json`);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
-      const galleries = await response.json();
-      displayGalleries(galleries);
+      const data = await response.json();
+      
+      // On normalise : si c'est déjà un tableau, on le garde,
+      // sinon on va chercher une propriété "galleries" ou "galeries"
+      const galleries = Array.isArray(data)
+        ? data
+        : (data.galleries || data.galeries || []);
+
+displayGalleries(galleries);
     } catch (error) {
       console.error('Erreur chargement galeries:', error);
       container.className = 'galleries-error';
@@ -241,5 +248,6 @@
   } else {
     loadGalleries();
   }
+
 
 })();
