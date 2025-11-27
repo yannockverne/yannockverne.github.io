@@ -30,7 +30,6 @@ async function loadGalleries() {
     
     const data = await response.json();
 
-    // DEBUG : voir ce qui arrive réellement
     console.log('galleries-index.json chargé :', data);
 
     let galleries;
@@ -44,8 +43,11 @@ async function loadGalleries() {
     } else if (Array.isArray(data.galeries)) {
       // 3) JSON = { "galeries": [ {...}, {...} ] }
       galleries = data.galeries;
+    } else if (data && data.id && data.nom) {
+      // 4) JSON = un seul objet galerie
+      galleries = [data];
     } else {
-      // 4) JSON = { "november-2955": {...}, "october-2955": {...} }
+      // 5) JSON = objet avec plusieurs galeries en propriétés
       galleries = Object.values(data);
     }
 
@@ -59,6 +61,7 @@ async function loadGalleries() {
     `;
   }
 }
+
 
 
   /**
@@ -222,12 +225,15 @@ async function loadGalleries() {
     }
   }
 
-  function formatGalleryName(name) {
-    return name
-      .replace(/-/g, ' ')
-      .replace(/_/g, ' ')
-      .replace(/\b\w/g, l => l.toUpperCase());
-  }
+function formatGalleryName(name) {
+  if (!name || typeof name !== 'string') return '';
+
+  return name
+    .replace(/-/g, ' ')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, l => l.toUpperCase());
+}
+
 
   function escapeHtml(text) {
     const map = {
@@ -265,4 +271,5 @@ async function loadGalleries() {
 
 
 })();
+
 
