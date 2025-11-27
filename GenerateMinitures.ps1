@@ -120,15 +120,40 @@ foreach ($folder in $galerieFolders) {
         # Ajouter à la liste pour le JSON
         $imagesList += @{
             original = $image.Name
-            thumb = "thumbs/$thumbName"
+            thumb    = "thumbs/$thumbName"
+        }
+    }
+
+    # Déterminer une date de galerie basée sur les fichiers
+    # On prend par exemple l'image dont le nom est "le plus grand" alphabétiquement
+    # (dans ton cas, toutes les images d'une galerie sont du même jour, donc ça suffit largement)
+    $galleryDate = Get-Date  # fallback si tout rate
+
+    if ($images.Count -gt 0) {
+        # "Star Citizen  13_04_2025 12_50_16.png"
+        $refImage = $images | Sort-Object Name | Select-Object -Last 1
+        $baseName = [System.IO.Path]::GetFileNameWithoutExtension($refImage.Name)
+
+        # On cherche un motif du type 13_04_2025 dans le nom
+        $dateMatch = [regex]::Match($baseName, '\d{2}_\d{2}_\d{4}')
+
+        if ($dateMatch.Success) {
+            $rawDate = $dateMatch.Value  # "13_04_2025"
+            try {
+                $galleryDate = [datetime]::ParseExact($rawDate, 'dd_MM_yyyy', $null)
+            }
+            catch {
+                # si jamais ça plante, on garde la date du jour
+                $galleryDate = Get-Date
+            }
         }
     }
     
     # Créer le fichier index.json
     $jsonPath = Join-Path $folder.FullName "index.json"
     $galerieData = @{
-        nom = $folder.Name -replace '-', ' ' -replace '_', ' '
-        date = Get-Date -Format "yyyy-MM-dd"
+        nom    = $folder.Name -replace '-', ' ' -replace '_', ' '
+        date   = $galleryDate.ToString("yyyy-MM-dd")
         images = $imagesList
     }
     
@@ -148,9 +173,9 @@ foreach ($folder in $galerieFolders) {
     if (Test-Path $jsonPath) {
         $galerieData = Get-Content $jsonPath | ConvertFrom-Json
         $globalIndex += @{
-            id = $folder.Name
-            nom = $galerieData.nom
-            date = $galerieData.date
+            id         = $folder.Name
+            nom        = $galerieData.nom
+            date       = $galerieData.date
             imageCount = $galerieData.images.Count
             coverImage = if ($galerieData.images.Count -gt 0) { 
                 $galerieData.images[0].thumb 
@@ -171,5 +196,4 @@ Write-Host "Fichier index global créé: galleries-index.json" -ForegroundColor 
 Write-Host ""
 Write-Host "Prochaines étapes:" -ForegroundColor Yellow
 Write-Host "   git"
-
 Write-Host "═══════════════════════════════════════════════════════" -ForegroundColor Cyan
