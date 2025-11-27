@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: "📸 Galeries Photo"
+title: "Photos"
 permalink: /photo/
 ---
 <div class="content-card" markdown="1">
