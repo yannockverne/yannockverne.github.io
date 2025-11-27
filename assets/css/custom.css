@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
    =========================== */
 
 .content-card {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 3rem auto;
   background: rgba(15, 15, 15, 0.92);
   color: #f3f3f3;
@@ -189,7 +189,7 @@ a:focus {
   top: 0;
   width: 120px;
   height: 120px;
-  transform: translate(-50%, 24px);
+  transform: translate(-50%, 20px);
   background-image: url('/assets/images/logo-yannock.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -372,7 +372,7 @@ a:focus {
 /* Conteneur centré pour le header et la grille */
 .gallery-modal-header,
 .gallery-modal-grid {
-  max-width: 1200px !important;
+  max-width: 1000px !important;
   margin: 0 auto !important;
   padding: 0 1.5rem; /* un peu d'air à gauche/droite */
 }
