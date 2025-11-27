@@ -352,4 +352,54 @@ a:focus {
     font-size: 0.95rem;
   }
 }
+/* Force le comportement du modal de galerie */
+#gallery-modal {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.96);
+  z-index: 9999;
+  overflow-y: auto;
+  display: none;
+}
+
+#gallery-modal.active {
+  display: block;
+}
+
+/* Header du modal */
+.gallery-modal-header {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffcf2b;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+/* Bouton fermer bien visible */
+.gallery-close-btn {
+  background: #ffcf2b;
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.gallery-close-btn:hover {
+  background: #ffe676;
+  transform: scale(1.05);
+}
+
 @import url('/assets/css/gallery.css');

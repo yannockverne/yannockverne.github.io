@@ -137,8 +137,6 @@
       return `
         <a href="${fullUrl}" 
            class="gallery-thumb"
-           data-pswp-width="${width}" 
-           data-pswp-height="${height}">
           <img src="${thumbUrl}" 
                alt="Photo ${index + 1} - ${formatGalleryName(galleryName || currentGallery.id)}" 
                loading="lazy"
