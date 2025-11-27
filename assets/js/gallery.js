@@ -159,7 +159,7 @@ async function loadGalleries() {
     }).join('');
 
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    //document.body.style.overflow = 'hidden';
 
     // Initialiser PhotoSwipe après un court délai
     setTimeout(() => initPhotoSwipe(), 100);
@@ -174,7 +174,7 @@ async function loadGalleries() {
     if (!modal) return;
     
     modal.classList.remove('active');
-    document.body.style.overflow = '';
+    //document.body.style.overflow = '';
     
     if (lightbox) {
       lightbox.destroy();
@@ -271,5 +271,6 @@ function formatGalleryName(name) {
 
 
 })();
+
 
 
