@@ -4,6 +4,9 @@ classes: wide
 title: "Photos"
 permalink: /photo/
 ---
+
+<link rel="stylesheet" href="/assets/css/gallery.css">
+
 <div class="content-card" markdown="1">
 
 <p class="gallery-subtitle">Screenshots du Verse • Exploration • Moments capturés</p>

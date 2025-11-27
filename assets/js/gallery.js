@@ -69,7 +69,7 @@
     container.className = 'galleries-grid';
     container.innerHTML = safeGalleries.map(gallery => {
       const coverUrl = `${GALLERIES_PATH}/${gallery.id}/${gallery.coverImage}`;
-      const date = formatDate(gallery.date);
+      // On ne veut plus afficher la date, donc pas de formatDate ici
       const galleryName = formatGalleryName(gallery.nom || gallery.id || '');
 
       return `
@@ -82,7 +82,6 @@
           <div class="gallery-card-content">
             <h3 class="gallery-card-title">${galleryName}</h3>
             <div class="gallery-card-meta">
-              <span>📅 ${date}</span>
               <span class="gallery-card-count">📸 ${gallery.imageCount} photo${gallery.imageCount > 1 ? 's' : ''}</span>
             </div>
           </div>
@@ -130,12 +129,16 @@
     content.innerHTML = (gallery.images || []).map((img, index) => {
       const thumbUrl = `${GALLERIES_PATH}/${currentGallery.id}/${img.thumb}`;
       const fullUrl = `${GALLERIES_PATH}/${currentGallery.id}/${img.original}`;
+
+      // Si le JSON contient largeur/hauteur, on les utilise pour garder le bon ratio
+      const width  = img.width  || img.w || 3840;
+      const height = img.height || img.h || 2160;
       
       return `
         <a href="${fullUrl}" 
            class="gallery-thumb"
-           data-pswp-width="3840" 
-           data-pswp-height="2160">
+           data-pswp-width="${width}" 
+           data-pswp-height="${height}">
           <img src="${thumbUrl}" 
                alt="Photo ${index + 1} - ${formatGalleryName(galleryName || currentGallery.id)}" 
                loading="lazy"
