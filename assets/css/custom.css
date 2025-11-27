@@ -369,14 +369,14 @@ a:focus {
   display: block;
 }
 
-/* Modal de galerie : sous la navbar, sur toute la hauteur restante */
+/* Modal de galerie : sous la navbar, avec fond translucide */
 #gallery-modal {
   position: fixed !important;
-  top: 90px; /* hauteur approximative de ta navbar */
+  top: 90px; /* ajustable selon la hauteur de ta navbar */
   left: 0;
   width: 100%;
   height: calc(100% - 90px);
-  background: rgba(0, 0, 0, 0.96);
+  background: rgba(0, 0, 0, 0.85); /* <— translucide, pas noir plein */
   z-index: 9999 !important;
   overflow-y: auto;
   display: none;
@@ -393,7 +393,7 @@ a:focus {
 }
 
 
-/* Bouton fermer bien visible */
+/* Bouton fermer */
 .gallery-close-btn {
   background: #ffcf2b;
   color: #000;
@@ -411,11 +411,14 @@ a:focus {
   background: #ffe676;
   transform: scale(1.05);
 }
-/* Contenu du modal : largeur max centrée */
-.gallery-modal-grid {
-  max-width: 1200px !important;
-  margin: 2rem auto !important;
+/* Titre dans le header */
+.gallery-modal-title {
+  font-size: 1.6rem;
+  color: #ffcf2b;
+  font-weight: 600;
+  margin: 0;
 }
+
 /* Forcer PhotoSwipe à respecter le ratio des images */
 .pswp__img {
   width: auto !important;
