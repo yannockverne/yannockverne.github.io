@@ -17,10 +17,10 @@ Write-Host ""
 
 # Vérifier si le dossier galeries existe
 if (-not (Test-Path $GaleriesPath)) {
-    Write-Host "❌ Le dossier '$GaleriesPath' n'existe pas!" -ForegroundColor Red
+    Write-Host "Le dossier '$GaleriesPath' n'existe pas!" -ForegroundColor Red
     Write-Host "Création du dossier..." -ForegroundColor Yellow
     New-Item -ItemType Directory -Path $GaleriesPath | Out-Null
-    Write-Host "✅ Dossier créé. Ajoutez-y vos galeries et relancez le script." -ForegroundColor Green
+    Write-Host "Dossier créé. Ajoutez-y vos galeries et relancez le script." -ForegroundColor Green
     exit
 }
 
@@ -73,7 +73,7 @@ function Create-Thumbnail {
 $galerieFolders = Get-ChildItem -Path $GaleriesPath -Directory
 
 if ($galerieFolders.Count -eq 0) {
-    Write-Host "❌ Aucune galerie trouvée dans '$GaleriesPath'" -ForegroundColor Red
+    Write-Host "Aucune galerie trouvée dans '$GaleriesPath'" -ForegroundColor Red
     Write-Host "Créez un dossier (ex: 'novembre2955') et ajoutez-y des images PNG" -ForegroundColor Yellow
     exit
 }
@@ -81,7 +81,7 @@ if ($galerieFolders.Count -eq 0) {
 $totalProcessed = 0
 
 foreach ($folder in $galerieFolders) {
-    Write-Host "📁 Traitement de la galerie: $($folder.Name)" -ForegroundColor Green
+    Write-Host "Traitement de la galerie: $($folder.Name)" -ForegroundColor Green
     
     # Créer le dossier thumbs s'il n'existe pas
     $thumbsPath = Join-Path $folder.FullName "thumbs"
@@ -93,7 +93,7 @@ foreach ($folder in $galerieFolders) {
     $images = Get-ChildItem -Path $folder.FullName -Filter "*.png"
     
     if ($images.Count -eq 0) {
-        Write-Host "  ⚠️  Aucune image PNG trouvée dans $($folder.Name)" -ForegroundColor Yellow
+        Write-Host "Aucune image PNG trouvée dans $($folder.Name)" -ForegroundColor Yellow
         continue
     }
     
@@ -106,15 +106,15 @@ foreach ($folder in $galerieFolders) {
         
         # Générer la miniature si elle n'existe pas ou si l'image source est plus récente
         if (-not (Test-Path $thumbPath) -or $image.LastWriteTime -gt (Get-Item $thumbPath).LastWriteTime) {
-            Write-Host "  🖼️  Génération: $($image.Name)..." -NoNewline
+            Write-Host "Génération: $($image.Name)..." -NoNewline
             
             if (Create-Thumbnail -SourcePath $image.FullName -DestPath $thumbPath -Width $ThumbnailWidth) {
-                Write-Host " ✅" -ForegroundColor Green
+                Write-Host " Ok" -ForegroundColor Green
                 $processedCount++
             }
         }
         else {
-            Write-Host "  ⏭️  Déjà à jour: $($image.Name)" -ForegroundColor Gray
+            Write-Host " Déjà à jour: $($image.Name)" -ForegroundColor Gray
         }
         
         # Ajouter à la liste pour le JSON
@@ -134,8 +134,8 @@ foreach ($folder in $galerieFolders) {
     
     $galerieData | ConvertTo-Json -Depth 3 | Set-Content -Path $jsonPath -Encoding UTF8
     
-    Write-Host "  📝 index.json créé avec $($images.Count) images" -ForegroundColor Cyan
-    Write-Host "  ✅ $processedCount nouvelle(s) miniature(s) générée(s)" -ForegroundColor Green
+    Write-Host "index.json créé avec $($images.Count) images" -ForegroundColor Cyan
+    Write-Host "$processedCount nouvelle(s) miniature(s) générée(s)" -ForegroundColor Green
     Write-Host ""
     
     $totalProcessed += $processedCount
@@ -165,10 +165,11 @@ $globalIndexPath = Join-Path $GaleriesPath "galleries-index.json"
 $globalIndex | ConvertTo-Json -Depth 3 | Set-Content -Path $globalIndexPath -Encoding UTF8
 
 Write-Host "═══════════════════════════════════════════════════════" -ForegroundColor Cyan
-Write-Host "✨ Terminé!" -ForegroundColor Green
-Write-Host "📊 Total: $totalProcessed miniature(s) générée(s)" -ForegroundColor Green
-Write-Host "📄 Fichier index global créé: galleries-index.json" -ForegroundColor Cyan
+Write-Host "Terminé!" -ForegroundColor Green
+Write-Host "Total: $totalProcessed miniature(s) générée(s)" -ForegroundColor Green
+Write-Host "Fichier index global créé: galleries-index.json" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "💡 Prochaines étapes:" -ForegroundColor Yellow
+Write-Host "Prochaines étapes:" -ForegroundColor Yellow
 Write-Host "   git"
+
 Write-Host "═══════════════════════════════════════════════════════" -ForegroundColor Cyan
