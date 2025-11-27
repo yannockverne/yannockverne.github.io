@@ -174,6 +174,31 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-indicator { display: none; }
 
+/* Fix GreedyNav overflow breakage */
+.greedy-nav .hidden-links,
+.greedy-nav__toggle {
+  display: none !important;
+}
+
+.greedy-nav .visible-links {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+/* Reserve space for the logo so the menu never slips under */
+.greedy-nav .visible-links {
+  margin-left: 150px !important;  /* espace égal à ~la moitié de ton logo */
+}
+
+/* Restore active tab yellow pill style */
+.greedy-nav .masthead__menu-item a[aria-current="page"],
+.greedy-nav .masthead__menu-item--active > a {
+  background: #ffcf2b !important;
+  color: #000 !important;
+  border: 2px solid #ffcf2b !important;
+  border-radius: 999px !important;
+  box-shadow: 0 0 12px rgba(255, 207, 43, 0.45) !important;
+}
+
 /* ===========================
    IMPORTS
    =========================== */
