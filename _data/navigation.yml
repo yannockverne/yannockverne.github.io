@@ -5,9 +5,6 @@ main:
   - title: "Streaming"
     url: /twitch/
 
-  - title: "Giveaway"
-    url: /giveaway/
-
   - title: "Photos"
     url: /photo/
 
