@@ -1,0 +1,127 @@
+/* =============== JOURNAL DE BORD =============== */
+
+.yv-logbook-intro {
+  color: var(--yv-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.yv-log-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.yv-log-entry {
+  border-radius: 0.9rem;
+  padding: 1rem 1.25rem;
+  background: rgba(5, 11, 22, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.yv-log-entry h3 {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+.yv-log-meta {
+  font-size: 0.85rem;
+  color: var(--yv-text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.yv-log-excerpt {
+  margin-bottom: 0;
+}
+/* ==============================
+   MODAL JOURNAL DE BORD
+   ============================== */
+
+.yv-log-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 999;
+}
+
+.yv-log-modal.is-open {
+  display: block;
+}
+
+.yv-log-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.76);
+}
+
+/* Conteneur principal de la modal */
+.yv-log-modal__content {
+  position: fixed;
+  top: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 900px;
+
+  background: #050b16;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  animation: yv-modal-pop 0.2s ease-out;
+  z-index: 1000; /* par sécurité */
+}
+
+
+.yv-log-modal__inner {
+  overflow-y: auto;
+  max-height: 70vh;
+  padding-right: 0.25rem;
+}
+
+.yv-log-modal__inner p {
+  margin-bottom: 0.8rem;
+}
+
+.yv-log-modal__close {
+  align-self: flex-end;
+  border: none;
+  background: transparent;
+  color: var(--yv-text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.yv-log-modal__close:hover {
+  color: var(--yv-accent);
+}
+
+@keyframes yv-modal-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Empêcher le scroll quand la modal est ouverte */
+.yv-lock-scroll {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .yv-log-modal__content {
+    width: 94vw;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4vh;
+    max-width: none;
+  }
+}
