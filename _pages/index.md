@@ -1,65 +1,117 @@
 ---
+title: "Yannock Verne"
 layout: single
 permalink: /
-title: "Yannock Verne — Star Citizen Streamer, Imperial Geographic & SubOrbital Records"
-description: "Streamer Star Citizen, photographe du Verse, rédacteur pour Imperial Geographic et fondateur du label in-lore SubOrbital Records."
+sidebar: false
 author_profile: false
-excerpt: "Streamer Star Citizen, photographe du Verse, éditeur Imperial Geographic et créateur de SubOrbital Records."
+toc: false
 classes: wide
-nav_exclude: true
+
+scripts:
+  - /assets/js/site.js
 ---
+<div class="yv-tabs">
 
-<div class="content-card" markdown="1">
+  <!-- NAVIGATION ONGLET -->
+  <nav class="yv-tabs__nav" aria-label="Sections principales">
+    <button class="yv-tab-link is-active" data-tab="about">Qui je suis</button>
+    <button class="yv-tab-link" data-tab="logbook">Journal de bord</button>
+    <button class="yv-tab-link" data-tab="photos">Photos</button>
+    <button class="yv-tab-link" data-tab="stream">Stream</button>
+    <button class="yv-tab-link" data-tab="impgeo">Imperial Geographic</button>
+    <!-- On préparera SubOrbital plus tard -->
+    <!-- <button class="yv-tab-link" data-tab="suborbital">SubOrbital</button> -->
+  </nav>
 
-> **Je suis Yannock — streameur, photographe du Verse, raconteur de trajectoires humaines et architecte de SubOrbital Records.**  
-> J’explore les mondes et les personnes qui les traversent : pilotes solitaires, mineurs tenaces, villes suspendues, vaisseaux fatigués, néons qui se reflètent sur les coques.  
-> Ici, je rassemble tout ce qui fait battre mon petit coin du Verse : des histoires, des images, des musiques, des moments vrais — capturés en vol ou façonnés en studio.  
-> *Prenez une porte, entrez. Le voyage commence où vous cliquez.*
+  <!-- ONGLET : QUI JE SUIS -->
+  <section id="tab-about" class="yv-tab-panel is-active">
+    <h2>Qui je suis</h2>
+    <p>
+      Joueur passionné, j'explore Star Citizen et ses merveilles sans prétention, appréciant avant tout
+      l'univers et le travail des créateurs.
+    </p>
+    <p>
+      Avec Imperial Geographic, je partage des moments de détente et de discussions autour du 'Verse.
+      Et quand je ne suis pas en vol, je capture le ciel, les néons, et les silences entre deux quantum
+      à travers mes screenshots et projets perso.
+    </p>
+  </section>
 
-## Mes univers
+  <!-- ONGLET : JOURNAL DE BORD (placeholder simple pour l'instant) -->
+  <section id="tab-logbook" class="yv-tab-panel">
+    <h2>Journal de bord</h2>
+    <p>
+      Ici, tu trouveras bientôt des récits RP, des fragments de voyage, des petites histoires
+      écrites entre deux sauts quantiques.
+    </p>
+    <p>
+      Le système sera basé sur des fichiers Markdown, triés par date, avec une intro visible ici
+      et le récit complet dans une lightbox.
+    </p>
+  </section>
 
-### 🎮 Streaming Star Citizen – Yannock sur Twitch
+  <!-- ONGLET : PHOTOS -->
+  <section id="tab-photos" class="yv-tab-panel">
+    <h2>Photos</h2>
+    <p>
+      Quelques fragments du 'Verse, capturés au fil de mes sessions. Nebuleuses, hangars, lumières
+      de ville ou champs de cailloux à miner — c'est ici que tout finit par se retrouver.
+    </p>
+    <p>
+      La galerie complète est accessible sur une page dédiée.
+    </p>
+    <p>
+      <a class="yv-primary-link" href="/photo/">
+        Ouvrir les galeries
+      </a>
+    </p>
+  </section>
 
-Des sessions chill… ou imprévisibles.  
-Exploration, minage, soirées Imperial Geographic, discussions tardives, musique et rencontres improbables.
+  <!-- ONGLET : STREAM -->
+  <section id="tab-stream" class="yv-tab-panel">
+    <h2>Stream</h2>
+    <p>
+      Je streame principalement Star Citizen, avec une ambiance chill, discussion, et parfois
+      quelques galères techniques — le classique du 'Verse.
+    </p>
+    <p>
+      Retrouve-moi sur Twitch :
+      <a href="https://twitch.tv/yannock_" target="_blank" rel="noopener">
+        twitch.tv/yannock_
+      </a>
+    </p>
+    <p>
+      Les alertes, goals et intégrations sont gérés via StreamElements, selon l'humeur et les projets en cours.
+    </p>
+  </section>
 
-- Streams centrés sur **Star Citizen**
-- Gameplay d’exploration, minage, events communautaires
-- Ambiance chill, échanges avec le chat, storytelling in-lore
+  <!-- ONGLET : IMPERIAL GEOGRAPHIC -->
+  <section id="tab-impgeo" class="yv-tab-panel">
+    <h2>Imperial Geographic</h2>
+    <p>
+      Je suis rédacteur exécutif et éditeur au sein d'Imperial Geographic, un magazine in-lore
+      dédié à l'exploration du 'Verse, à ses habitants et à ses histoires.
+    </p>
+    <p>
+      Les numéros sont publiés à intervalles réguliers, souvent en lien avec les grands événements
+      de Star Citizen : Invictus, IAE, sorties de systèmes, etc.
+    </p>
+    <p>
+      Tu trouveras bientôt ici une sélection de nos publications avec des liens vers les PDF
+      et le Community Hub.
+    </p>
+  </section>
 
-➡️ [Découvrir la partie streaming](/twitch/)
-
-### 🖼️ Photographie du Verse – Screenshots & Art
-
-Des lunes en feu, des cités dans les nuages, des coques scarifiées, des horizons gelés.  
-Capturer ce que le Verse laisse entrevoir — juste avant qu’il ne disparaisse.
-
-- **Screenshots Star Citizen** en haute résolution
-- Villes (Orison, New Babbage, Lorville…), vaisseaux, paysages spatiaux
-- Sélection d’images utilisées dans les projets **Imperial Geographic** et SubOrbital
-
-➡️ [Voir quelques images](/photo/)
-
-### 📰 Imperial Geographic – Yannock Verne, Editor & Storyteller
-
-Executive Editor / Editorial Supervisor chez **Imperial Geographic**.  
-Magazines narratifs, portraits, systèmes stellaires, récits de terrain.
-
-- Numéros spéciaux (Pyro, Crusader, Voidwalkers, etc.)
-- Histoires de mineurs, d’explorateurs, de pilotes et de créateurs
-- Un objectif : **raconter le Verse, une histoire à la fois**
-
-➡️ [Explorer mon travail ImpGeo](/imperial-geographic/)
-
-### 🎵 SubOrbital Records – Label In-Lore du Verse
-
-Un label in-lore pour donner une voix au silence des étoiles.  
-De la sueur des studios TPR aux vibrations qui voyagent d’un système à l’autre.
-
-- Label fictionnel **SubOrbital Records**, ancré dans l’univers de Star Citizen
-- Artistes : **Lyra Nhadra, Kovah Redd, The Scrapliners, SubLight Shift**, et d’autres
-- Compilation *Across the Clouds* et morceaux originaux produits en collaboration avec la communauté
-
-➡️ [Plonger dans SubOrbital Records](/suborbital)
+  <!-- ONGLET : SUBORBITAL (placeholder, non utilisé pour l'instant) -->
+  <section id="tab-suborbital" class="yv-tab-panel">
+    <h2>SubOrbital Records</h2>
+    <p>
+      SubOrbital est un label musical in-lore en cours de construction. Pour l'instant, ce projet
+      vit surtout dans les documents, les sessions de travail et quelques essais sonores.
+    </p>
+    <p>
+      Une vraie page dédiée arrivera plus tard, peut-être sur <code>suborbital.yannock.eu</code>.
+    </p>
+  </section>
 
 </div>
