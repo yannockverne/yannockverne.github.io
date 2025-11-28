@@ -147,3 +147,22 @@ a:hover {
   color: #050505;
   transform: translateY(-1px);
 }
+/* Corrige l'état focus des boutons onglets */
+.yv-tab-link {
+  outline: none;
+}
+
+.yv-tab-link:focus-visible {
+  outline: 2px solid var(--yv-accent-soft);
+}
+
+/* Masquer la navbar du thème pour ne garder que les onglets */
+.masthead {
+  display: none;
+}
+
+/* Remonter un peu la page pour compenser */
+.initial-content,
+.page {
+  margin-top: 1.5rem;
+}

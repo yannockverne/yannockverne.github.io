@@ -7,8 +7,6 @@ author_profile: false
 toc: false
 classes: wide
 
-scripts:
-  - /assets/js/site.js
 ---
 <div class="yv-tabs">
 
@@ -115,3 +113,4 @@ scripts:
   </section>
 
 </div>
+<script src="{{ '/assets/js/site.js' | relative_url }}"></script>
