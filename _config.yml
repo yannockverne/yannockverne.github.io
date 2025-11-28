@@ -26,3 +26,7 @@ defaults:
       toc: false
 
 markdown: kramdown
+
+collections:
+  logbook:
+    output: false

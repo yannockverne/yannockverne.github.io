@@ -166,3 +166,38 @@ a:hover {
 .page {
   margin-top: 1.5rem;
 }
+
+/* =============== JOURNAL DE BORD =============== */
+
+.yv-logbook-intro {
+  color: var(--yv-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.yv-log-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.yv-log-entry {
+  border-radius: 0.9rem;
+  padding: 1rem 1.25rem;
+  background: rgba(5, 11, 22, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.yv-log-entry h3 {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+.yv-log-meta {
+  font-size: 0.85rem;
+  color: var(--yv-text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.yv-log-excerpt {
+  margin-bottom: 0;
+}

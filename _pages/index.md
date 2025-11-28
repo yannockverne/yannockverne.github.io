@@ -35,17 +35,32 @@ classes: wide
     </p>
   </section>
 
-  <!-- ONGLET : JOURNAL DE BORD (placeholder simple pour l'instant) -->
+  <!-- ONGLET : JOURNAL DE BORD -->
   <section id="tab-logbook" class="yv-tab-panel">
     <h2>Journal de bord</h2>
-    <p>
-      Ici, tu trouveras bientôt des récits RP, des fragments de voyage, des petites histoires
-      écrites entre deux sauts quantiques.
+    <p class="yv-logbook-intro">
+      Quelques fragments de voyage, saisis entre deux sauts quantiques. Des récits RP, des instants
+      captés dans le cockpit ou sur le terrain, quand le 'Verse se fait un peu plus proche.
     </p>
-    <p>
-      Le système sera basé sur des fichiers Markdown, triés par date, avec une intro visible ici
-      et le récit complet dans une lightbox.
-    </p>
+
+    <div class="yv-log-entries">
+      {% assign logs = site.logbook | sort: "date" | reverse %}
+      {% if logs.size > 0 %}
+        {% for entry in logs %}
+          <article class="yv-log-entry">
+            <h3>{{ entry.title }}</h3>
+            <p class="yv-log-meta">
+              {{ entry.date | date: "%Y.%m.%d" }}
+            </p>
+            <p class="yv-log-excerpt">
+              {{ entry.excerpt }}
+            </p>
+          </article>
+        {% endfor %}
+      {% else %}
+        <p>Aucun log pour le moment. Le premier récit arrive bientôt.</p>
+      {% endif %}
+    </div>
   </section>
 
   <!-- ONGLET : PHOTOS -->
